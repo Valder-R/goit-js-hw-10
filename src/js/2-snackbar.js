@@ -18,23 +18,23 @@ form.addEventListener("submit", (ev) => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (isSuccess) {
-        resolve(`✅ Fulfilled promise in ${delay}ms`);
+        resolve(delay);
       } else {
-        reject(`❌ Rejected promise in ${delay}ms`);
+        reject(delay);
       }
     }, delay);
   });
   promise
       .then(value => {
       iziToast.show({
-              message: value,
+              message: `✅ Fulfilled promise in ${value}ms`,
               backgroundColor: '#59a10d',
               position:'topRight'
           });
     })
     .catch(error => {
         iziToast.show({
-              message: error,
+              message: `❌ Rejected promise in ${error}ms`,
               backgroundColor: '#ef4040',
               position: 'topRight'
           });
